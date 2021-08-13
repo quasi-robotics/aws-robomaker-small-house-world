@@ -21,6 +21,7 @@ import os
 import launch
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
 
 
@@ -30,20 +31,24 @@ def generate_launch_description():
     gazebo_ros = get_package_share_directory('gazebo_ros')
 
     gazebo_client = launch.actions.IncludeLaunchDescription(
-	launch.launch_description_sources.PythonLaunchDescriptionSource(
+        launch.launch_description_sources.PythonLaunchDescriptionSource(
             os.path.join(gazebo_ros, 'launch', 'gzclient.launch.py')),
         condition=launch.conditions.IfCondition(launch.substitutions.LaunchConfiguration('gui'))
-     )
+    )
     gazebo_server = launch.actions.IncludeLaunchDescription(
         launch.launch_description_sources.PythonLaunchDescriptionSource(
-            os.path.join(gazebo_ros, 'launch', 'gzserver.launch.py'))
+            os.path.join(gazebo_ros, 'launch', 'gzserver.launch.py')
+        ),
+        launch_arguments={'server_required': 'true',
+                          'verbose': 'true',
+                          'world': launch.substitutions.LaunchConfiguration('world')}.items()
     )
 
     return LaunchDescription([
         DeclareLaunchArgument(
-          'world',
-          default_value=[os.path.join(package_dir, 'worlds', world_file_name), ''],
-          description='SDF world file'),
+            'world',
+            default_value=[os.path.join(package_dir, 'worlds', world_file_name), ''],
+            description='SDF world file'),
         DeclareLaunchArgument(
             name='gui',
             default_value='false'
@@ -53,8 +58,8 @@ def generate_launch_description():
             default_value='true'
         ),
         DeclareLaunchArgument('state',
-            default_value='true',
-            description='Set "true" to load "libgazebo_ros_state.so"'),
+                              default_value='true',
+                              description='Set "true" to load "libgazebo_ros_state.so"'),
         gazebo_server,
         gazebo_client,
     ])
