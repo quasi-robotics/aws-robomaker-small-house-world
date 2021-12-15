@@ -18,6 +18,15 @@
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
+      <ode>
+        <solver>
+          <iters>400</iters>
+        </solver>
+        <constraints>
+          <cfm>0.00005</cfm>
+          <erp>0.2</erp>
+        </constraints>
+      </ode>
     </physics>
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
@@ -34,7 +43,7 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
 
-  <model name='AirconditionerA_01_001'>
+    <model name='AirconditionerA_01_001'>
         <static>true</static>
         <include>
             <uri>model://aws_robomaker_residential_AirconditionerA_01</uri>
@@ -273,7 +282,7 @@
 	</model>
 	
 	<model name='Dumbbell_01_001'>
-        <static>true</static>    
+        <static>false</static>
         <include>
             <uri>model://aws_robomaker_residential_Dumbbell_01</uri>
         </include>
@@ -587,7 +596,7 @@
         <include>
             <uri>model://aws_robomaker_residential_Trash_01</uri>
         </include>
-        <pose frame=''>2.360151 -0.796238 0.011 0 -0 0</pose>
+        <pose frame=''>8.8344 -1.9606 0.011 0 -0 0</pose>
 	</model>
     <model name='Trash_01_002'>
         <static>true</static>    
@@ -707,6 +716,13 @@
         </include>
         <pose frame=''>-2.396624 4.387607 0.502739 0 -0 0</pose>
 	</model>
+    <model name="Coke_1">
+      <include>
+          <uri>model://Coke</uri>
+          <static>false</static>
+      </include>
+      <pose>5.9 0.9 0.82 0 0 0</pose>
+    </model>
 
     <!-- Lights !-->
     <!--

@@ -3,17 +3,17 @@
   <model name="aws_robomaker_residential_Dumbbell_01">
     <link name="link">
       <inertial>
-        <mass>80</mass>
-
+        <mass>10</mass>
+        <pose>0 0 0.2 0 0 0</pose>
         <!-- slender rod -->
         <!-- 1/12 * M * L^2 -->
         <inertia>
-          <ixx>14.601</ixx>
+          <ixx>0.3</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0</iyy>
+          <iyy>0.01</iyy>
           <iyz>0</iyz>
-          <izz>14.601</izz>
+          <izz>0.3</izz>
         </inertia>
       </inertial>
       <collision name="collision">
@@ -23,19 +23,21 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
+        <surface>
+          <contact>
+            <ode>
+              <kp>2000000.0</kp>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <torsional>
               <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
+            </torsional>
+            <ode/>
+          </friction>
+        </surface>
       </collision>
       <visual name="visual">
 	    <geometry>
@@ -43,8 +45,10 @@
             <uri>model://aws_robomaker_residential_Dumbbell_01/meshes/aws_Dumbbell_01_visual.DAE</uri>
           </mesh>
         </geometry>
-      <meta> <layer> 1 </layer></meta>
-</visual>
+      <meta>
+        <layer>1</layer>
+      </meta>
+      </visual>
     </link>
     <static>1</static>
   </model>
