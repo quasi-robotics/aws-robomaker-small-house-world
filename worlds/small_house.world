@@ -23,8 +23,8 @@
           <iters>400</iters>
         </solver>
         <constraints>
-          <cfm>0.00005</cfm>
-          <erp>0.2</erp>
+          <cfm>0.000005</cfm>
+          <erp>0.5</erp>
         </constraints>
       </ode>
     </physics>
