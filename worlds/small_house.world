@@ -721,14 +721,14 @@
           <uri>model://Coke</uri>
           <static>false</static>
       </include>
-      <pose>5.9 0.9 0.82 0 0 -2.8</pose>
+      <pose>5.9 0.89 0.82 0 0 -2.8</pose>
     </model>
     <model name="SAMe_200_1">
       <include>
         <uri>model://SAMe_200</uri>
         <static>false</static>
       </include>
-      <pose>5.95 1.08 0.801 0 0 -1.1</pose>
+      <pose>5.94 1.08 0.801 0 0 -1.0</pose>
     </model>
 
     <!-- Lights !-->
