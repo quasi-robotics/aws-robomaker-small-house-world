@@ -731,6 +731,14 @@
       <pose>5.94 1.08 0.801 0 0 -1.0</pose>
     </model>
 
+	<model name='R2_Charging_Station'>
+        <static>false</static>    
+        <include>
+            <uri>model://charging_station</uri>
+        </include>
+        <pose>8.708 3.063 .275 3.14159 0 -1.570796327</pose>
+	</model>
+
     <!-- Lights !-->
     <!--
     <light name='sun' type='directional'>

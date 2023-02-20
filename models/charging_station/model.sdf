@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="r2_charging_station">
+    <static>true</static>
+    <link name="link">
+      <inertial>
+        <pose>.157 .291 .217 0 0 0</pose>
+        <mass>4</mass>
+        <inertia>
+          <ixy>0</ixy>
+          <ixz>-0.032</ixz>
+          <iyz>0</iyz>
+          <ixx>0.343</ixx>
+          <iyy>0.182</iyy>
+          <izz>0.423</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://charging_station/meshes/Retainer_platform_Charing_Station.STL</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>200000.0</kp>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://charging_station/meshes/Retainer_platform_Charing_Station.STL</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+        <meta>
+          <layer> 1 </layer>
+        </meta>
+        <material>
+          <diffuse>0.12 0.76 0.97 1</diffuse>
+          <ambient>0.03 0.21 0.27 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
