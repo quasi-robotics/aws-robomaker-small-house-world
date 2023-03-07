@@ -2,7 +2,7 @@
 
 <sdf version="1.6">
   <model name='Coke'>
-    <static>true</static>
+    <static>false</static>
     <link name="body">
       <pose>0 0 0 0 0 0</pose>
 
@@ -36,7 +36,7 @@
 
         <!-- TODO: Replace with accurate values of mass and inertia -->
         <inertial>
-          <mass>1.0</mass>
+          <mass>0.358</mass>
           <inertia>
             <ixx>0.003366666666666667</ixx>
             <iyy>0.0008666666666666667</iyy>
